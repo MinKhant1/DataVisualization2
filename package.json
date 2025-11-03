@@ -1,19 +1,30 @@
 {
   "name": "datavisualization2",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "private": true,
+  "type": "module",
+  "description": "3D Box Office Visualization built with Three.js and Vite",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-      "dev": "vite"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "threejs",
+    "vite",
+    "3d",
+    "visualization"
+  ],
+  "author": "Team5",
+  "license": "MIT",
   "dependencies": {
     "three": "^0.181.0"
   },
   "devDependencies": {
-    "vite": "^7.1.12"
+    "vite": "^5.4.10"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

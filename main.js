@@ -247,7 +247,7 @@ async function init(){
   // Load data
   let rows=[];
   try{
-    rows = await loadCSV('./boxoffice_top50_roi.csv');
+    rows = await loadCSV('/boxoffice_top50_roi.csv');
   }catch(e){
     console.warn('CSV fetch failed — using demo data', e);
   }
