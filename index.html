@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Box Office Constellation — Impact Mountain</title>
+    <style>
+        :root {
+            --bg: #05080f;
+            --panel: #10182bcc;
+            --border: #1b2742;
+            --muted: #9aa6b2;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: radial-gradient(1200px 800px at 60% 40%, #0d1430 0%, #071023 50%, #05080f 100%);
+            color: #e8eef7;
+            font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        #app {
+            position: fixed;
+            inset: 0;
+        }
+
+        /* HUD panel */
+        .hud {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 14px 16px;
+            max-width: 720px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 14px 50px rgba(0, 0, 0, .40);
+            font-size: 15px;
+            line-height: 1.5;
+            color: #e8eef7;
+        }
+
+        .hud h1 {
+            margin: 0 0 6px 0;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: .3px;
+            color: #fff;
+        }
+
+        .hud b {
+            color: #fff;
+        }
+
+        /* Legend: compact */
+        .legend {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 6px 10px;
+            margin-top: 10px;
+            align-items: center;
+        }
+
+        .legend div {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .1px;
+            color: #dfe8f7;
+        }
+
+        .swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-top: 0;
+            box-shadow: 0 0 6px rgba(255, 255, 255, .15);
+        }
+
+        .ring-swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid #ffe96f;
+            box-shadow: 0 0 10px rgba(255, 233, 111, .9), 0 0 18px rgba(255, 233, 111, .25);
+        }
+
+        /* Tooltip */
+        #tooltip {
+            position: fixed;
+            display: none;
+            transform: translate(10px, 10px);
+            background: rgba(8, 12, 24, .96);
+            border: 1px solid rgba(60, 84, 130, .9);
+            color: #eaf2ff;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 8px 10px;
+            pointer-events: none;
+            z-index: 10;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, .45);
+        }
+
+        #tooltip .t {
+            font-weight: 800;
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+
+        #tooltip .m {
+            opacity: .9;
+        }
+
+        @media (max-width: 800px) {
+            .hud {
+                font-size: 14px;
+                max-width: 92%;
+                padding: 12px 14px;
+            }
+
+            .legend div {
+                font-size: 12px;
+            }
+
+            .swatch,
+            .ring-swatch {
+                width: 11px;
+                height: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <div class="hud">
+        <h1>⭐ Box Office Constellation — Impact Mountain</h1>
+        <div>
+            <b>Peak Chart:</b> Height = <b>Impact</b> (IMDb × ROI × √Gross).<br />
+            X = <b>Time</b> (5-year bins), Z = <b>Genre</b>, Y = <b>Impact</b>. Peaks glow with flags for the top cells.
+        </div>
+
+        <div class="legend" id="legend">
+            <!-- Injected: “Glowing summits (top peaks)” + genre colors -->
+        </div>
+    </div>
+
+    <div id="tooltip"></div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>
